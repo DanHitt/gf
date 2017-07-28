@@ -55,6 +55,7 @@ authRouter.post("/login", function (req, res) {
 })
 
 authRouter.post("/signup", function (req, res) {
+
     User.findOne({
         username: req.body.username
     }, function (err, existingUser) {

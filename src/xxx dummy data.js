@@ -60,7 +60,7 @@
     name: "Game Night Games",
     phone: "801-467-2400",
     website: "http://www.gamenightgames.com/",
-    streetAddy: "2148 S. 900 E.",
+        streetAddy: "2148 900 E. ste 2"
     city: "Salt Lake City",
     state: "Utah",
     zip: "84106",

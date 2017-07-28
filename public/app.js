@@ -1,4 +1,4 @@
-var app = angular.module("GamesApp", ["ngRoute", "GamesApp.Auth", "ngStorage"]);
+var app = angular.module("GamesApp", ["ngRoute", "GamesApp.Auth", "ngStorage", "ui.bootstrap"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
