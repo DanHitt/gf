@@ -15,6 +15,7 @@ app.service("StoresService", ["$http", "$localStorage", function ($http, $localS
         })
     }
 
+
     this.byStateGetStores = function (state) {
         return $http.get("/stores/" + state).then(function (response) {
             return response.data;
@@ -74,7 +75,8 @@ app.controller("StoresController", ["$scope", "$localStorage", "$location", "Sto
     $scope.supported = false;
 
     $scope.states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
-    //*******************modals
+
+    //*******************modals******************
     $scope.open = function (message) {
         var fullMessage = "<div><center><h1>Comments</h1></center><h3 style='padding-left:10px'>" + message + "</h3></div>"
         var modalInstance = $modal.open({
@@ -85,15 +87,16 @@ app.controller("StoresController", ["$scope", "$localStorage", "$location", "Sto
             var fullMessage = "<div><center><h1>Full Address</h1></center><h3 style='padding-left:10px'>" + store.streetAddy + ' ' + store.city + ', ' + store.state + ' ' + store.zip + "</h3></div>"
             var modalInstance = $modal.open({
                 template: fullMessage,
-        });
-    }
-        //end modals***************
+            });
+        }
+        //**************end modals***************
+
     $scope.getUser = function () {
         StoresService.getUser($localStorage.userId).then(function (user) {
             $scope.user = user;
         })
     }
-    $scope.getUser();
+    $scope.getUser(); //init user
 
     $scope.getStores = function () {
         StoresService.getStores().then(function (stores) {
@@ -135,11 +138,7 @@ app.controller("StoresController", ["$scope", "$localStorage", "$location", "Sto
 
     $scope.filterByDate = function (dateFilter) {
         var temp = [];
-        for (var i = 0; i < $scope.storesFull.length; i++) {
-            //            if ($scope.storeFull[i].){
-            //
-            //            }
-        }
+        for (var i = 0; i < $scope.storesFull.length; i++) {}
     }
 
     $scope.getStoreSessions = function (store) {
@@ -149,11 +148,7 @@ app.controller("StoresController", ["$scope", "$localStorage", "$location", "Sto
 
     $scope.getStoreByName = function () {
         StoresService.getStoreByName($localStorage.myStore).then(function (store) {
-            $scope.myStoreInfo = store
-            $localStorage.storeInfo = {
-                storeId: store._id,
-                storeName: store.name
-            };
+            $localStorage.storeInfo = store;
             $location.path('/storeSession')
         })
     }
@@ -216,11 +211,15 @@ app.controller("StoresController", ["$scope", "$localStorage", "$location", "Sto
         })
     }
     $scope.openGoogleMaps = function (store) {
-        console.log(store);
         let location = "http://maps.google.com/?q=" + store.streetAddy + ", " + store.city + ", " + store.state + " " + store.zip + "/";
         window.open(location);
 
     }
+    $scope.storeWebsiteGo = function (store) {
+        var website = "http://" + store.website;
+        window.open(website);
+    }
+
 
 }]);
 

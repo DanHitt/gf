@@ -29,6 +29,10 @@ app.config(["$routeProvider", function ($routeProvider) {
         .when("/storeSession", {
             templateUrl: "components/sessions/storeSession.html",
             controller: "StoreSessionController"
-    })
+        })
+        .when("/addStore", {
+            templateUrl: "components/stores/addStore.html",
+            controller: "AddStoreController"
+        })
 
 }]);

@@ -13,7 +13,7 @@
                     <div class="col-md-2 font140" ng-click="getStores(myState)"><i class="fa fa-arrow-left blue"></i></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2 font140"><i ng-click="getStoreByName()" style="color:red;" class="fa fa-flash"></i> </div>
+                    <div class="col-md-2 font140"><i ng-click="getStoreByName()" class="fa fa-bank"></i> </div>
                     <div class="col-md-8 font140" ng-click="getStoreByName()">{{myStore}}</div>
                     <div class="col-md-2 font140"><i style="color:red;" class="fa fa-heart"></i> </div>
 
@@ -71,7 +71,7 @@
                         <div class="col-md-7 storeFont2">
                             <i class="fa fa-phone blue"></i> <span>{{ store.phone }}</span>
                             <div><i class="fa fa-globe blue" data-toggle="tooltip" data-placement="top" title="Click to open Google Maps" ng-click="openGoogleMaps(store)"></i> <span style="color:blue;" ng-click="openAddy(store)">{{store.streetAddy| limitTo:10}} {{store.city| limitTo:10}}</span></div>
-                            <div><i class="fa fa-firefox" style="color:red;"></i> {{store.website | limitTo:20}}</div>
+                            <div><i class="fa fa-firefox" style="color:red;"></i> <span ng-click="storeWebsiteGo(store)">{{store.website | limitTo:20}}</span></div>
                             <div><i class="fa fa-dashcube"></i> Gaming Tables: <span>{{store.gamingTables}}</span></div>
                             <div><i class="fa fa-comment " ng-click="open(store.description)"></i> <span ng-click="open(store.description)" style="color:blue;">Click to Open</span></div>
                         </div>

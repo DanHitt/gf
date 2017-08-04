@@ -78,7 +78,7 @@ app.controller("StoreSessionController", ["$scope", "$localStorage", "$location"
 
     $scope.getGames = function () {
         StoreSessionService.getGames().then(function (games) {
-            console.log(games[0].name);
+            console.log(games);
             $scope.games = games;
             $scope.games.unshift({name: "None"});
         });
